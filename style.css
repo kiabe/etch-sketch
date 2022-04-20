@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    border: 1px solid;
+    min-height: 20px;
+    min-width: 20px;
+    margin-top: 2px;
+    margin-right: 2px;
+}

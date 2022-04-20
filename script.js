@@ -1,26 +1,36 @@
 const container = document.querySelector('.container');
+let cells = document.getElementsByClassName('cell');
 
-// creates divs to serve as grids for etch sketch
+function createCell() {
+    // creates individual cells for etch sketch
+    const cell = document.createElement('div');
+    cell.classList.add('cell');
+    container.appendChild(cell);
+};
+
+function createRows(rowNum) {
+    // creates rows for grid
+    for (let i = 0; i < rowNum; i++) {
+        createCell();
+    };
+};
+
+function createColumns(columnNum) {
+    // creates columns for grid
+    for (let i = 0; i < cells.length; i++) {
+        for (let j = 0; j < columnNum; j++) {
+            const column = document.createElement('div');
+            column.classList.add('column');
+            column.textContent = 'bar';
+            cells[j].appendChild(column);
+        };
+    };
+};
+
 function createGrid() {
-    const grid = document.createElement('div');
-    grid.classList.add('grid');
-    grid.style.cssText = 'border-style: solid;';
-    grid.textContent = 'foo';
-    return grid;
-}
+    // creates grid canvas for etch sketch of size rows x columns
+    createRows(16);
+    createColumns(16);
+};
 
-// purpose to slap many divs in the container
-function drawGrid() {
-    // doc frag is staging area where multiple elements can be added here first and then to DOM
-    let docFrag = document.createDocumentFragment();
-
-    // loop to create as many grids as defined and append to docFrag
-    for (let i = 0; i < 6; i++) {
-        docFrag.appendChild(createGrid());   
-    }
-
-    // after loop finishes, add all elements at once
-    container.appendChild(docFrag);
-}
-
-drawGrid();
+createGrid();
