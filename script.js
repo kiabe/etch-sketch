@@ -21,7 +21,6 @@ function createColumns(columnNum) {
         for (let j = 0; j < columnNum; j++) {
             const column = document.createElement('div');
             column.classList.add('column');
-            column.textContent = 'bar';
             cells[j].appendChild(column);
         };
     };
