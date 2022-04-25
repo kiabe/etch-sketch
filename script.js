@@ -32,4 +32,17 @@ function createGrid() {
     createColumns(16);
 };
 
-createGrid();
+window.addEventListener('click', (e) => {
+    console.log(e);
+    console.log(e.target);
+    console.log(e.target.tagName);
+    console.log(e.target.hasChildNodes());
+    console.log(e.target.hasChildNodes() == false);
+
+    // check if click target has children, if false, which all grid cells should be, colors in individual grid 
+    if (e.target.hasChildNodes() === false) {
+        e.target.setAttribute('style', 'background: pink;');
+    } else {
+        return;
+    };
+});
