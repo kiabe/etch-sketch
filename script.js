@@ -1,11 +1,13 @@
 const container = document.querySelector('.container');
-let cells = document.getElementsByClassName('cell');
+const canvas = document.querySelector('#canvas');
+const reset = document.querySelector('#reset');
+const cells = document.getElementsByClassName('cell');
 
 function createCell() {
     // creates individual cells for etch sketch
     const cell = document.createElement('div');
     cell.classList.add('cell');
-    container.appendChild(cell);
+    canvas.appendChild(cell);
 };
 
 function createRows(rowNum) {
@@ -26,11 +28,13 @@ function createColumns(columnNum) {
     };
 };
 
-function createGrid() {
+function createGrid(rowNum, columnNum) {
     // creates grid canvas for etch sketch of size rows x columns
-    createRows(16);
-    createColumns(16);
+    // default size to 16x16
+    createRows(rowNum);
+    createColumns(columnNum);
 };
+createGrid(16, 16);
 
 window.addEventListener('click', (e) => {
     console.log(e);
@@ -46,3 +50,11 @@ window.addEventListener('click', (e) => {
         return;
     };
 });
+
+function removeGrid() {
+    // removes canvas grid
+    while (canvas.firstChild) {
+        canvas.removeChild(canvas.firstChild);
+    };
+};
+// reset.addEventListener('click', removeGrid);
