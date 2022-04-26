@@ -1,7 +1,10 @@
 const container = document.querySelector('.container');
 const canvas = document.querySelector('#canvas');
 const reset = document.querySelector('#reset');
+const create = document.querySelector('#create');
 const cells = document.getElementsByClassName('cell');
+let userRow = 16;
+let userColumn = 16;
 
 function createCell() {
     // creates individual cells for etch sketch
@@ -10,17 +13,17 @@ function createCell() {
     canvas.appendChild(cell);
 };
 
-function createRows(rowNum) {
+function createRows(userRow) {
     // creates rows for grid
-    for (let i = 0; i < rowNum; i++) {
+    for (let i = 0; i < userRow; i++) {
         createCell();
     };
 };
 
-function createColumns(columnNum) {
+function createColumns(userColumn) {
     // creates columns for grid
     for (let i = 0; i < cells.length; i++) {
-        for (let j = 0; j < columnNum; j++) {
+        for (let j = 0; j < userColumn; j++) {
             const column = document.createElement('div');
             column.classList.add('column');
             cells[j].appendChild(column);
@@ -28,13 +31,13 @@ function createColumns(columnNum) {
     };
 };
 
-function createGrid(rowNum, columnNum) {
+function createGrid(userRow, userColumn) {
     // creates grid canvas for etch sketch of size rows x columns
     // default size to 16x16
-    createRows(rowNum);
-    createColumns(columnNum);
+    createRows(Number(userRow));
+    createColumns(Number(userColumn));
 };
-createGrid(16, 16);
+createGrid(userRow, userColumn);
 
 window.addEventListener('click', (e) => {
     console.log(e);
@@ -58,3 +61,21 @@ function removeGrid() {
     };
 };
 reset.addEventListener('click', removeGrid);
+
+function userPrompt() {
+    userRow = window.prompt("How many rows would you like in the canvas? Max is 100");
+    userColumn = window.prompt("How many columns would like in the canvas? Max is 100");
+
+    if (Number(userRow) > 100 || Number(userColumn) > 100) {
+        alert('Nice try buddy but your computer would explode if you go past the limit. No grid for you.');
+    } else if (userRow == null || userColumn == null) {
+        alert('You forgot the numbers? Shame on you');
+    } else if (Number(userRow) !== Number(userColumn)) {
+        alert('Please make rows and columns equal');
+    } else {
+        alert('You followed the instructions, good on ya. Enjoy');
+        createGrid(userRow, userColumn);
+    }
+};
+
+create.addEventListener('click', userPrompt);
