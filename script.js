@@ -57,4 +57,4 @@ function removeGrid() {
         canvas.removeChild(canvas.firstChild);
     };
 };
-// reset.addEventListener('click', removeGrid);
+reset.addEventListener('click', removeGrid);
