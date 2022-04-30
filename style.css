@@ -8,14 +8,23 @@ header {
 #canvas {
     display: flex;
     justify-content: center;
+    width: 600px;
+    height: 600px;
+}
+
+.cell {
+    display: flex;
+    flex-direction: column;
+    flex: auto;
 }
 
 .column {
     border: 1px solid;
-    min-height: 20px;
-    min-width: 20px;
-    margin-top: 2px;
-    margin-right: 2px;
+    min-height: 4px;
+    min-width: 4px;
+    margin-top: 1px;
+    margin-right: 1px;
+    flex: auto;
 }
 
 .column:hover {

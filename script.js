@@ -63,10 +63,10 @@ function removeGrid() {
 reset.addEventListener('click', removeGrid);
 
 function userPrompt() {
-    userRow = window.prompt("How many rows would you like in the canvas? Max is 100");
-    userColumn = window.prompt("How many columns would like in the canvas? Max is 100");
+    userRow = window.prompt("Please set the number of rows. Max is 60");
+    userColumn = window.prompt("Please set the number of columns. Max is 60");
 
-    if (Number(userRow) > 100 || Number(userColumn) > 100) {
+    if (Number(userRow) > 60 || Number(userColumn) > 60) {
         alert('Nice try buddy but your computer would explode if you go past the limit. No grid for you.');
     } else if (userRow == null || userColumn == null) {
         alert('You forgot the numbers? Shame on you');
