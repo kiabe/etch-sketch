@@ -1,7 +1,6 @@
 const container = document.querySelector('.container');
 const canvas = document.querySelector('#canvas');
 const reset = document.querySelector('#reset');
-const create = document.querySelector('#create');
 const cells = document.getElementsByClassName('cell');
 let userRow = 16;
 let userColumn = 16;
@@ -39,7 +38,7 @@ function createGrid(userRow, userColumn) {
 };
 createGrid(userRow, userColumn);
 
-window.addEventListener('click', (e) => {
+window.addEventListener('mouseover', (e) => {
     console.log(e);
     console.log(e.target);
     console.log(e.target.tagName);
@@ -78,4 +77,4 @@ function userPrompt() {
     }
 };
 
-create.addEventListener('click', userPrompt);
+reset.addEventListener('click', userPrompt);

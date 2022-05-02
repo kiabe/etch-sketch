@@ -5,6 +5,26 @@ header {
     padding-bottom: 10px;
 }
 
+body {
+    background-color: antiquewhite;
+}
+
+#ui-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#reset {
+    background-color: rgb(205, 227, 247);
+    border-radius: 0.5em;
+}
+
+#canvas-border {
+    display: flex;
+    justify-content: center;
+}
+
 #canvas {
     display: flex;
     justify-content: center;
@@ -24,9 +44,6 @@ header {
     min-width: 4px;
     margin-top: 1px;
     margin-right: 1px;
+    background-color: white;
     flex: auto;
-}
-
-.column:hover {
-    background-color: aqua;
 }
